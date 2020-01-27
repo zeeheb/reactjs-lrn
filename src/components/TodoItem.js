@@ -5,8 +5,10 @@ export class TodoItem extends Component {
   getStyle = () => {
     return {
       padding: '10px',
-      borderBottom: '3px red dotted',
-      backgroundColor: 'lightblue',
+      borderBottom: '3px #333 ',
+      backgroundColor: '#abc',
+      border: '1px solid #333',
+      marginBottom: '1px',
       textDecoration: this.props.todo.completed ? 'line-through' : 'none'
     };
   };
@@ -23,7 +25,10 @@ export class TodoItem extends Component {
             type='checkbox'
             onChange={this.props.markComplete.bind(this, id)}
           ></input>{' '}
-          {this.props.todo.title}
+          {title}
+          <button onClick={this.props.delTodo.bind(this, id)} style={btnStyle}>
+            X
+          </button>
         </p>
       </div>
     );
@@ -33,6 +38,16 @@ export class TodoItem extends Component {
 // proptypes
 TodoItem.propTypes = {
   todo: PropTypes.object.isRequired
+};
+
+const btnStyle = {
+  background: 'red',
+  color: 'white',
+  border: 'none',
+  padding: '2px 5px',
+  borderRadius: '50%',
+  cursor: 'pointer',
+  float: 'right'
 };
 
 export default TodoItem;
