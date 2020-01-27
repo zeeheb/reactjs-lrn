@@ -5,6 +5,7 @@ import Header from './components/layout/Header';
 import AddTodo from './components/AddTodo';
 import { Component } from 'react';
 import uuid from 'uuid';
+import ButtonAppBar from './components/layout/ButtonAppBar';
 
 class App extends Component {
   state = {
@@ -60,6 +61,7 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
+        <ButtonAppBar></ButtonAppBar>
         <div className='container'>
           <Header></Header>
           <AddTodo addTodo={this.addTodo}></AddTodo>
